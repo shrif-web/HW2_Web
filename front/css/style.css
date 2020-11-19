@@ -4,3 +4,30 @@
 .r_dir {
     direction: rtl;
 }
+.text_style {
+    text-align: right;
+    color: azure;
+}
+.right_nav {
+    background-color:rgb(134, 77, 192);
+    position: fixed;
+    top: 12vh;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    box-shadow: 5px 0 10px 1px gray;
+    float: right;
+    text-align: right; 
+}
+
+.top_flex {
+    background-color: rgb(200, 220, 233);
+}
+
+h3 {
+    margin-right: 20px;
+}
+
+h6 {
+    margin-right: 30px;
+}
