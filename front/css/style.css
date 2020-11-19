@@ -11,17 +11,21 @@
 .right_nav {
     background-color:rgb(134, 77, 192);
     position: fixed;
-    top: 12vh;
+    margin-top: 103px;
+    top: 0;
     bottom: 0;
     right: 0;
     width: 300px;
     box-shadow: 5px 0 10px 1px gray;
     float: right;
-    text-align: right; 
+    text-align: right;
+
 }
 
 .top_flex {
     background-color: rgb(200, 220, 233);
+    position: fixed;
+    width: 100%;
 }
 
 h3 {
@@ -30,4 +34,43 @@ h3 {
 
 h6 {
     margin-right: 30px;
+}
+
+.under_line:hover {
+    text-decoration: underline;
+}
+
+.card_div {
+    overflow-y: scroll;
+    margin-right: 300px;
+    margin-top: 103px;
+    top: 0;
+    left: 0;
+    float: right;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.box2 {
+    float: right;
+    margin: 15px;
+    border-style: ridge;
+    width: 300px;
+    height: 300px;
+    @media screen and (min-width:1000px) {
+        
+    }
+    @media screen and (max-width:999px) {
+        
+    }
+}
+
+.box2:hover {
+    box-shadow: 10px 10px 8px #d6d3d3;
+    background-color: rgb(168, 235, 235);
+}
+
+.card_image {
+    width: 100px;
+    height: 100px; 
 }
