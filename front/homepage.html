@@ -18,12 +18,14 @@
 
 
 </head>
-<script></script>
-<header style="position: fixed; width: 100%;">
-<nav class="navbar navbar-expand-sm shadow" id="topNavigator">
+<script>
+</script>
+<header style="position: fixed; width: 100%; height: 98px;">
+<nav class="navbar navbar-expand-sm shadow" id="topNavigator" style="height: 98px;">
     
-    <button id="sidebarCollapse" type="button" class="btn"
-            style="position: absolute; left: 30px; padding: 12px;"><i class="fa fa-bars fa-4"></i></button>
+    <button id="sidebarCollapse" type="button" class="btn" onclick="onBarClick"
+            style="position: absolute; left: 30px; padding: 12px;"><i class="fa fa-bars" id="bar_icon" style="width: max-content; height: max-content;"></i></button>
+    <!-- <button class="btn" onclick="showSidebar()" id="sidebarCollapse"><i id="sidebar_control_icon" class="fas fa-bars fa-2x"></i></button> -->
     
     <div class="collapse navbar-collapse" id="top-nav-text">
         <div class="p-2 r_dir" style="margin-top: 20px; margin-left: 20px;">
@@ -38,7 +40,7 @@
                 <a class="nav-link under_line" href="#" style="margin-top: 20px; margin-right: 20px;">داده‌ها</a>
               </div>
               <div class="p-2">
-                <a class="nav-link under_line" href="#" style="margin-top: 20px; margin-right: 130px;">خانه <span class="sr-only">(current)</span></a>
+                <a class="nav-link under_line active" id="homelink" href="#" style="margin-top: 20px; margin-right: 130px;">خانه <span class="sr-only">(current)</span></a>
               </div>
               <div class="p-2">
                 
@@ -121,19 +123,55 @@
         <a href="#">ثبت نام</a>
     </div>
     
-    <div class="card_div" id="container">
-        <div class="ui grid">
-            <div class="four wide column"></div>
-            <div class="four wide column"></div>
-            <div class="four wide column"></div>
-            <div class="four wide column"></div>
-            <div class="four wide column"></div>
-            <div class="four wide column"></div>
-            <div class="four wide column"></div>
-            <div class="four wide column"></div>
-          </div>
-
-
+    <div class="row r_dir card_div" style="display: flex; flex-direction: row; justify-content: flex-start;"> 
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
+        <div class="box2">
+            <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
+        </div>
     </div>
 
  
