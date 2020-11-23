@@ -74,6 +74,12 @@
   
 
 @media (max-width: 600px) {
+    
+    #container{
+        margin-right: 0px;
+    }
+
+
     #sidebar {
       margin-right: calc(100% + -300px);
     }
