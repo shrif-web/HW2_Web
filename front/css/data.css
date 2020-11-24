@@ -72,19 +72,10 @@
     border-top: 5px solid #186aa4;
 }
   
-#data-container{
-    
-    margin-left: 0px;
 
-}
+
 
 @media (max-width: 600px) {
-    
-    #data-container{
-        margin-right: 0px;
-    }
-
-
     #sidebar {
       margin-right: calc(100% + -300px);
     }
@@ -156,32 +147,38 @@ h6 {
 .card_div {
     overflow-y: scroll;
     margin-right: 300px;
+    margin-left: 10PX;
     margin-top: 103px;
-    top: 0;
-    left: 0;
+    
+
     float: right;
-    padding-left: 2%;
-    padding-right: 2%;
+    
+    padding: 2%;
+    
 }
 
-.box2 {
+.mytable {
     float: right;
-    margin: 15px;
-    border-style: ridge;
-    width: 300px;
-    height: 300px;
-    @media screen and (min-width:1000px) {
-        
-    }
-    @media screen and (max-width:999px) {
-        
-    }
+    left: 0px;
+    margin-left: 50px;
+    margin-right: auto;
+    border-style: none;
+    
+    margin-bottom: 20px;
+    width: 100%;
+    transition: box-shadow 0.2s ease-in-out;
+
+    text-align: right;
+    vertical-align: middle;
 }
 
-.box2:hover {
-    box-shadow: 10px 10px 8px #d6d3d3;
-    background-color: rgb(168, 235, 235);
+.mytable thead{
+    background: blue;
+    color: white;
 }
+
+
+
 
 .card_image {
     width: 100px;
