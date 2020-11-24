@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>خانه</title>
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
+  <link href='https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="icon" href="../assets/images/blue_favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/data.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="./js/homepage.js"></script>
+
+
+</head>
+<script></script>
+<header style="position: fixed; width: 100%;">
+<nav class="navbar navbar-expand-sm shadow" id="topNavigator">
+    
+    <button id="sidebarCollapse" type="button" class="btn"
+            style="position: absolute; left: 30px; padding: 12px;"><i class="fa fa-bars fa-4"></i></button>
+    
+    <div class="collapse navbar-collapse" id="top-nav-text">
+        <div class="p-2 r_dir" style="margin-top: 20px; margin-left: 20px;">
+            <button type="button" class="btn btn-primary btn-lg" style="width: 150px; border-style: ridge;">ثبت نام</button>
+          </div>
+          <div class="p-2 r_dir" style="margin-top: 20px; margin-left: 20px;">
+            <button type="button" class="btn btn-secondary btn-lg" style="width: 150px; border-style: ridge; background-color:rgb(225, 247, 238); color: rgb(77, 77, 223);">ورود</button>
+          </div>
+          <div class="ml-auto p-2">
+            <div class="d-flex flex-row-reverse r_dir">
+              <div class="p-2">
+                <a class="nav-link under_line" href="#" style="margin-top: 20px; margin-right: 20px;">داده‌ها</a>
+              </div>
+              <div class="p-2">
+                <a class="nav-link under_line" href="#" style="margin-top: 20px; margin-right: 130px;">خانه <span class="sr-only">(current)</span></a>
+              </div>
+              <div class="p-2">
+                
+              </div>
+            </div>
+        </div>
+    </div>
+    <a class="navbar-brand ml-auto" style="padding: 0;float: right;">
+        <img src="../assets/images/blue_logo_200x200.png" width="120" height="70" class="d-inline-block align-top" style="object-fit: cover;">
+    </a>
+</nav>
+</header>
+
+
+
+
+<body>
+    <aside style="float: right; text-align: right; margin-top: 98px;">
+    <!-- <aside> -->
+    <div class="right-side-nav active r_dir" id="sidebar" style="z-index: 2!important">
+        <div class="py-4 px-3 mb-4">
+            <div class="media-body">
+                <h4 class="font-weight-white text-muted mb-0"></h4>
+                <p class="font-weight-grey text-muted mb-0"></p>
+            </div>
+        </div>
+        <br>
+    
+    
+        <ul class="nav flex-column mb-0 r_dir" style="float: right;">
+            <li class="nav-item r_dir" style="float: right;">
+                <p class="text-white font-weight-bold text-uppercase px-3 pb-4 mb-0"><big>اعضای تیم </big></p>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light">
+                    <i class="fa fa-user mr-3 text-primary fa-fw"></i>
+                    اسماعیل پاهنگ
+    
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light">
+                    <i class="fa fa-user mr-3 text-primary fa-fw"></i>
+                    علی پورقاسمی
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light">
+                    <i class="fa fa-user mr-3 text-primary fa-fw"></i>
+                    محمد فتاح
+    
+    
+                </a>
+            </li>
+            <br>
+            <p class="text-white font-weight-bold text-uppercase px-3  pb-4 mb-0"><big>تنظیمات </big></p>
+    
+            <ul class="nav flex-column mb-0">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-light">
+                        حالت شب
+                        <!-- Default switch -->
+                        <div class="custom-control custom-switch"
+                             style="display: inline-block; position: absolute; left: 10%;">
+                            <input type="checkbox" class="custom-control-input" id="customSwitches">
+                            <label class="custom-control-label" for="customSwitches"></label>
+                        </div>
+    
+                    </a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+    </aside>
+
+    <div class="shadow-lg bottom-navbar" id="bottomNavigation" style="display: none;">
+        <a class="active" href="#">خانه</a>
+        <a href="#">داده ها</a>
+        <a href="#">ورود</a>
+        <a href="#">ثبت نام</a>
+    </div>
+    
+    <div class="card_div" id="data-container"> <!-- ui unstackable table -->
+        <table class="table table-striped r_dir"> <!-- ui unstackable table -->
+            <thead>
+              <tr>
+                <th>نام</th>
+                <th>نام تیم</th>
+                <th>نام دانشگاه و کشور</th>
+                <th>امتیاز</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John Lilki</td>
+                <td>September 14, 2013</td>
+                <td>jhlilk22@yahoo.com</td>
+                <td>No</td>
+              </tr>
+              <tr class="active">
+                <td>Jamie Harington</td>
+                <td>January 11, 2014</td>
+                <td>jamieharingonton@yahoo.com</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jill Lewis</td>
+                <td>May 11, 2014</td>
+                <td>jilsewris22@yahoo.com</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>    
+    </div>
+    
+
+ 
+</body>
+</html>
