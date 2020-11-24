@@ -71,14 +71,64 @@
 .bottom-navbar a.active {
     border-top: 5px solid #186aa4;
 }
+
+.card_div {
+    overflow-y: scroll;
+    margin-right: 300px;
+    margin-top: 103px;
+    top: 0;
+    left: 0;
+    float: right;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.box2 {
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+    background-color: rgb(221, 230, 230);
+    margin-bottom: 20px;
+    width: 23%;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.box2:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card_image {
+    width: 75%;
+    height: 80%; 
+}
+
+@media screen and (max-width: 1000px) {
+    .bo2 {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #homelink{
+        margin-right: 20px;
+    }
+}
   
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
+
+    .card_div{
+        margin-right: 0px;
+    }
     
     #container{
         margin-right: 0px;
     }
 
+    .box2 {
+        width: 90%;
+    }
 
     #sidebar {
       margin-right: calc(100% + -300px);
@@ -119,7 +169,7 @@
 }
 .right_nav {
     position: fixed;
-    margin-top: 100px;
+    margin-top: 98px;
     top: 0;
     bottom: 0;
     right: 0;
@@ -148,38 +198,7 @@ h6 {
     text-decoration: underline;
 }
 
-.card_div {
-    overflow-y: scroll;
-    margin-right: 300px;
-    margin-top: 103px;
-    top: 0;
-    left: 0;
-    float: right;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.box2 {
-    float: right;
-    margin: 15px;
-    border-style: ridge;
-    width: 300px;
-    height: 300px;
-    @media screen and (min-width:1000px) {
-        
-    }
-    @media screen and (max-width:999px) {
-        
-    }
-}
-
-.box2:hover {
-    box-shadow: 10px 10px 8px #d6d3d3;
-    background-color: rgb(168, 235, 235);
-}
-
-.card_image {
-    width: 100px;
-    height: 100px; 
+.under_line.active {
+    border-bottom: 5px solid;
 }
 
