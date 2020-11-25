@@ -1,3 +1,9 @@
+#bottomNavigation{
+    display: none;
+}
+
+
+
 #topNavigator{
     background: rgb(225, 247, 238);
 }
@@ -37,7 +43,7 @@
 
 #sidebar{
  
-    background-color: #186aa4;
+    background-color: #056cb6;
     background-size: cover;
     background-repeat: no-repeat;
     width: 300px;

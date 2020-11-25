@@ -32,14 +32,19 @@ $(function() {
 function changemood(){
   if(document.getElementById('moodswitch').checked) {
     document.getElementById('sidebar').style.background = '#022742';
-    document.getElementById("container").style.background = '#2d2d2d';
+    document.getElementById("table-container").style.background = '#2d2d2d';
     document.getElementById("topNavigator").style.background = 'rgb(33, 87, 64)';
+    document.getElementById("tableid").classList = 'table table-dark r_dir mytable'
+    
   } else {
     document.getElementById('sidebar').style.background = '#056cb6';
-    document.getElementById("container").style.background = 'white';
+    document.getElementById("table-container").style.background = 'white';
     document.getElementById("topNavigator").style.background = 'rgb(225, 247, 238)';
+    document.getElementById("tableid").classList = 'table table-striped r_dir mytable'
   }
 }
+
+
 
 function gohome(){
 	window.open("homepage.html","_self");
@@ -56,6 +61,8 @@ function gologin(){
 function goregister(){
 	window.open("register.html","_self");
 }
+
+
 
 
 

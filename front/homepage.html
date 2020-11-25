@@ -29,18 +29,18 @@
     
     <div class="collapse navbar-collapse" id="top-nav-text">
         <div class="p-2 r_dir" style="margin-top: 20px; margin-left: 20px;">
-            <button type="button" class="btn btn-primary btn-lg" style="width: 150px; border-style: ridge;">ثبت نام</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="goregister()" style="width: 150px; border-style: ridge;">ثبت نام</button>
           </div>
           <div class="p-2 r_dir" style="margin-top: 20px; margin-left: 20px;">
-            <button type="button" class="btn btn-secondary btn-lg" style="width: 150px; border-style: ridge; background-color:rgb(225, 247, 238); color: rgb(77, 77, 223);">ورود</button>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="gologin()" style="width: 150px; border-style: ridge; background-color:rgb(225, 247, 238); color: rgb(77, 77, 223);">ورود</button>
           </div>
           <div class="ml-auto p-2">
             <div class="d-flex flex-row-reverse r_dir">
               <div class="p-2">
-                <a class="nav-link under_line" href="#" style="margin-top: 20px; margin-right: 20px;">داده‌ها</a>
+                <a class="nav-link under_line" href="#" onclick="godata()" style="margin-top: 20px; margin-right: 20px;">داده‌ها</a>
               </div>
               <div class="p-2">
-                <a class="nav-link under_line active" id="homelink" href="#" style="margin-top: 20px; margin-right: 130px;">خانه <span class="sr-only">(current)</span></a>
+                <a class="nav-link under_line active" id="homelink" onclick="gohome()" href="#" style="margin-top: 20px; margin-right: 130px;">خانه <span class="sr-only">(current)</span></a>
               </div>
               <div class="p-2">
                 
@@ -60,7 +60,7 @@
 <body>
     <aside style="float: right; text-align: right; margin-top: 98px;">
     <!-- <aside> -->
-    <div class="right-side-nav active r_dir" id="sidebar" style="z-index: 2!important">
+    <div class="right-side-nav active r_dir" id="sidebar" style="z-index: 2!important;">
         <div class="py-4 px-3 mb-4">
             <div class="media-body">
                 <h4 class="font-weight-white text-muted mb-0"></h4>
@@ -70,60 +70,47 @@
         <br>
     
     
-        <ul class="nav flex-column mb-0 r_dir" style="float: right;">
-            <li class="nav-item r_dir" style="float: right;">
-                <p class="text-white font-weight-bold text-uppercase px-3 pb-4 mb-0"><big>اعضای تیم </big></p>
+        <h3 class = "text_style px-3 pb-4 mb-0">
+            <b>اعضای گروه</b>
+        </h3>
+        <br>
+          <ul class="r_dir mb-1">
+            <li>
+              <p class = "text_style pb-4 mb-0">اسماعیل پاهنگ</p>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-light">
-                    <i class="fa fa-user mr-3 text-primary fa-fw"></i>
-                    اسماعیل پاهنگ
-    
-                </a>
+            <li>
+                <p class = "text_style pb-4 mb-0">علی پورقاسمی</p>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-light">
-                    <i class="fa fa-user mr-3 text-primary fa-fw"></i>
-                    علی پورقاسمی
-                </a>
+            <li>
+                <p class = "text_style pb-4 mb-0">محمد فتاح</p>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-light">
-                    <i class="fa fa-user mr-3 text-primary fa-fw"></i>
-                    محمد فتاح
-    
-    
-                </a>
-            </li>
+          </ul>
             <br>
-            <p class="text-white font-weight-bold text-uppercase px-3  pb-4 mb-0"><big>تنظیمات </big></p>
+            <h3 class = "text_style px-3 pb-4 mb-0">
+                <b>تنظیمات</b>
+            </h3>
+            
     
             <ul class="nav flex-column mb-0">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">
-                        حالت شب
-                        <!-- Default switch -->
-                        <div class="custom-control custom-switch"
-                             style="display: inline-block; position: absolute; left: 10%;">
-                            <input type="checkbox" class="custom-control-input" id="customSwitches">
-                            <label class="custom-control-label" for="customSwitches"></label>
-                        </div>
-    
-                    </a>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" onchange="changemood()" id="moodswitch">
+                        <label class="custom-control-label" for="moodswitch" ><p class = "text_style">حالت شب</p></label>
+                    </div>
                 </li>
             </ul>
         </ul>
     </div>
     </aside>
 
-    <div class="shadow-lg bottom-navbar" id="bottomNavigation" style="display: none;">
-        <a class="active" href="#">خانه</a>
-        <a href="#">داده ها</a>
-        <a href="#">ورود</a>
-        <a href="#">ثبت نام</a>
+    <div class="shadow-lg bottom-navbar" id="bottomNavigation">
+        <a onclick="gohome()" class="active" href="#">خانه</a>
+        <a onclick="godata()" href="#">داده ها</a>
+        <a onclick="gologin()" href="#">ورود</a>
+        <a onclick="goregister()" href="#">ثبت نام</a>
     </div>
     
-    <div class="row r_dir card_div" style="display: flex; flex-direction: row; justify-content: flex-start;"> 
+    <div class="row r_dir card_div" id='container' style="display: flex; flex-direction: row; justify-content: flex-start;"> 
         <div class="box2">
             <img class="card-img-top card_image" src="../assets/images/black_favicon/android-chrome-192x192.png" alt="Card image cap">
         </div>
