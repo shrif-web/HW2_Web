@@ -59,7 +59,7 @@ function gologin(){
 }
 
 function goregister(){
-	window.open("register.html","_self");
+	window.open("login.html","_self");
 }
 
 
