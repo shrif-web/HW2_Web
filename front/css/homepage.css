@@ -86,8 +86,8 @@
     /* left: 0; */
     float: right;
     padding-top: 103px;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 1%;
+    padding-right: 1.35%;
     height: 100vh;
 }
 
@@ -133,6 +133,8 @@
 
     .card_div{
         margin-right: 0px;
+        padding-right: 0%;
+        padding-left: 2.5%;
     }
     
     #container{
