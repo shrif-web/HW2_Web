@@ -37,10 +37,10 @@
             <div class="ml-auto p-2">
               <div class="d-flex flex-row-reverse r_dir">
                 <div class="p-2">
-                  <a class="nav-link under_line" href="#" onclick="godata()" style="margin-top: 20px; margin-right: 20px;">داده‌ها</a>
+                  <a class="nav-link under_line active" href="#" onclick="godata()" style="margin-top: 20px; margin-right: 20px;">داده‌ها</a>
                 </div>
                 <div class="p-2">
-                  <a class="nav-link under_line active" id="homelink" onclick="gohome()" href="#" style="margin-top: 20px; margin-right: 130px;">خانه <span class="sr-only">(current)</span></a>
+                  <a class="nav-link under_line" id="homelink" onclick="gohome()" href="#" style="margin-top: 20px; margin-right: 130px;">خانه <span class="sr-only">(current)</span></a>
                 </div>
                 <div class="p-2">
                   
@@ -101,6 +101,14 @@
     </div>
     </aside>
 
+    <div class="row" style="width: 100%; position: fixed; bottom: 55px;" id="buttonid2">
+      <div class="col">
+        <button class="ui primary basic button float-right" style="margin-right: 2%;">قبلی</button>
+        <button class="ui primary basic button float-left" style="margin-left: 4%;">بعدی</button>
+      </div>
+    </div>
+
+
     <div class="shadow-lg bottom-navbar" id="bottomNavigation">
       <a onclick="gohome()" class="active" href="#">خانه</a>
       <a onclick="godata()" href="#">داده ها</a>
@@ -108,9 +116,9 @@
       <a onclick="goregister()" href="#">ثبت نام</a>
   </div>
     
-    <div class="row r_dir card_div" id='table-container' > 
+    <div class="table_div" id='table-container'> 
       <table class="table table-striped r_dir mytable" id="tableid"> <!-- ui unstackable table -->
-        <thead>
+        <thead> 
           <tr>
             <th>نام</th>
             <th>نام تیم</th>
@@ -158,12 +166,149 @@
         </tbody>
       </table>    
 
-      <div class="row" style="width: 100%;">
-        <div class="col">
-          <button class="ui primary basic button float-right" style="margin-left: 50px;">قبلی</button>
-          <button class="ui primary basic button float-left">بعدی</button>
+
+      <div class="row r_dir card_table" id='cardtable'> 
+        <div class="box1">
+          <table class="key-value-table ux-light-table" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <th class="th_text">نام</th>
+                    <td class="td_text">محمد محمدی</td>
+                </tr>
+                <tr>
+                    <th class="th_text">نام تیم</th>
+                    <td class="td_text">انتقام جویان</td>
+                </tr>
+                <tr>
+                  <th class="th_text">نام دانشگاه و کشور</th>
+                  <td class="td_text">دانشگاه آکسفورد</td>
+              </tr>
+              <tr>
+                  <th class="th_text">امتیاز</th>
+                  <td class="td_text">۱۰۱۴۱</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box1">
+          <table class="key-value-table ux-light-table" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <th class="th_text">نام</th>
+                    <td class="td_text">محمد محمدی</td>
+                </tr>
+                <tr>
+                    <th class="th_text">نام تیم</th>
+                    <td class="td_text">انتقام جویان</td>
+                </tr>
+                <tr>
+                  <th class="th_text">نام دانشگاه و کشور</th>
+                  <td class="td_text">دانشگاه آکسفورد</td>
+              </tr>
+              <tr>
+                  <th class="th_text">امتیاز</th>
+                  <td class="td_text">۱۰۱۴۱</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box1">
+          <table class="key-value-table ux-light-table" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <th class="th_text">نام</th>
+                    <td class="td_text">محمد محمدی</td>
+                </tr>
+                <tr>
+                    <th class="th_text">نام تیم</th>
+                    <td class="td_text">انتقام جویان</td>
+                </tr>
+                <tr>
+                  <th class="th_text">نام دانشگاه و کشور</th>
+                  <td class="td_text">دانشگاه آکسفورد</td>
+              </tr>
+              <tr>
+                  <th class="th_text">امتیاز</th>
+                  <td class="td_text">۱۰۱۴۱</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box1">
+          <table class="key-value-table ux-light-table" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <th class="th_text">نام</th>
+                    <td class="td_text">محمد محمدی</td>
+                </tr>
+                <tr>
+                    <th class="th_text">نام تیم</th>
+                    <td class="td_text">انتقام جویان</td>
+                </tr>
+                <tr>
+                  <th class="th_text">نام دانشگاه و کشور</th>
+                  <td class="td_text">دانشگاه آکسفورد</td>
+              </tr>
+              <tr>
+                  <th class="th_text">امتیاز</th>
+                  <td class="td_text">۱۰۱۴۱</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box1">
+          <table class="key-value-table ux-light-table" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <th class="th_text">نام</th>
+                    <td class="td_text">محمد محمدی</td>
+                </tr>
+                <tr>
+                    <th class="th_text">نام تیم</th>
+                    <td class="td_text">انتقام جویان</td>
+                </tr>
+                <tr>
+                  <th class="th_text">نام دانشگاه و کشور</th>
+                  <td class="td_text">دانشگاه آکسفورد</td>
+              </tr>
+              <tr>
+                  <th class="th_text">امتیاز</th>
+                  <td class="td_text">۱۰۱۴۱</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box1">
+          <table class="key-value-table ux-light-table" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <th class="th_text">نام</th>
+                    <td class="td_text">محمد محمدی</td>
+                </tr>
+                <tr>
+                    <th class="th_text">نام تیم</th>
+                    <td class="td_text">انتقام جویان</td>
+                </tr>
+                <tr>
+                  <th class="th_text">نام دانشگاه و کشور</th>
+                  <td class="td_text">دانشگاه آکسفورد</td>
+              </tr>
+              <tr>
+                  <th class="th_text">امتیاز</th>
+                  <td class="td_text">۱۰۱۴۱</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+
+      <div class="row" style="width: 100%;" id="buttonid1">
+        <div class="col">
+          <button class="ui primary basic button float-right" style="margin-right: 2%;">قبلی</button>
+          <button class="ui primary basic button float-left" style="margin-left: 2%;">بعدی</button>
+        </div>
+      </div>
+
 
     </div>
     
