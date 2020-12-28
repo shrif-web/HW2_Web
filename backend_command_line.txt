@@ -1,0 +1,12 @@
+npm install express
+npm install nodemon
+
+// install mongodB
+npm install parse-server mongodb-runner
+npm install parse-dashboard
+
+http://localhost:3000/api/signup?mail=ali@gmail.com&pass=thisispass
+http://localhost:3000/api/signin?mail=ali@gmail.com&pass=thisispass
+http://localhost:3000/api/getuser
+
+
