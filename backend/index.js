@@ -41,12 +41,17 @@ app.get('/', function (req, res) {
 
 app.post('/api/signup', (req, res) => { // req.body = { username: 'ali', pass: 'thisispass' }
     console.log(req.query);
-    var p1 = signUp(req.query.mail, req.query.pass);
+    var p1 = signUp(req.query.email, req.query.password);
     p1.then(value => {
-        res.send(value); // Success!
+        res.status(201).send({"message": "user has been created."}); // Success!
       }, reason => {
-        //console.log("signup Error >>> ",reason);
-        res.status(400).send(reason); // Error!
+        let header_status = 400;
+        if (reason.code==202) {
+            header_status = 409;
+        } else if (reason.code == 125) {
+            header_status == 400;
+        }
+        res.status(header_status).send(reason); // Error!
     });
 
     
@@ -55,6 +60,12 @@ app.post('/api/signup', (req, res) => { // req.body = { username: 'ali', pass: '
 
 
 async function signUp(mail, userpass) {
+    //check pass len
+    if(userpass.length < 5) {
+        let messageErr = {code:125 ,message:"filed `password`.length should be gt 5"};
+        return Promise.reject(messageErr);
+    }
+
     Parse.User.enableUnsafeCurrentUser()
     const user = new Parse.User();
     user.set("username", mail);
@@ -69,20 +80,27 @@ async function signUp(mail, userpass) {
         return "Hooray! Let them use the app now.";
     } catch (error) {
         // Show the error message somewhere and let the user try again.
-        let messageErr = "Error: " + error.code + " " + error.message;
+        let messageErr = {code:error.code ,message:error.message};
         return Promise.reject(messageErr);
     }
 
 }
 
 async function signin(username, userpass) {
+    if(false) { // todo username is not email
+        let messageErr = {code:201 ,message:"filed `email` is not valid"};
+        return Promise.reject(messageErr);
+    } else if (false) { //todo request length
+        let messageErr = {code:201 ,message:"Request Length should be 2"};
+        return Promise.reject(messageErr);
+    }
     Parse.User.enableUnsafeCurrentUser()
     try {
         const user = await Parse.User.logIn(username, userpass);
         return user.getEmail();
     } catch (error) {
         // Show the error message somewhere and let the user try again.
-        let messageErr = "Error: " + error.code + " " + error.message;
+        let messageErr = {code:error.code ,message:error.message};
         return Promise.reject(messageErr);
     }
     
@@ -90,12 +108,19 @@ async function signin(username, userpass) {
 
 app.post('/api/signin', (req,res) =>{
     console.log(req.query);
-    var p1 = signin(req.query.mail, req.query.pass);
+    var p1 = signin(req.query.email, req.query.password);
     p1.then(value => {
+        // todo token
         res.send(value); // Success!
       }, reason => {
-        //console.log("signup Error >>> ",reason);
-        res.status(400).send(reason); // Error!
+          console.log(reason);
+        let header_status = 400;
+        if (reason.code==201) {
+            header_status = 400;
+        } else if (reason.code == 101) {
+            header_status == 401;
+        }
+        res.status(header_status).send(reason); // Error!
     });
 
 })
@@ -111,12 +136,6 @@ app.post('/api/getuser', (req,res) =>{
     }
 
 })
-
-
-
-
-
-
 
 
 
