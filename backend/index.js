@@ -1,5 +1,10 @@
-const express = require('express')
-const app = express()
+var express = require('express')
+var cors = require('cors')
+var app = express()
+ 
+app.use(cors())
+
+
 // parse server and dashboard
 var ParseServer = require('parse-server').ParseServer;
 var api = new ParseServer({
@@ -38,10 +43,9 @@ app.get('/', function (req, res) {
   res.send('Hello World')
 })
  
-
-app.post('/api/signup', (req, res) => { // req.body = { username: 'ali', pass: 'thisispass' }
-    console.log(req.query);
-    var p1 = signUp(req.query.email, req.query.password);
+// user login
+app.post('/api/signup', (req, res) => {
+    var p1 = signUp(req.body.email, req.body.password);
     p1.then(value => {
         res.status(201).send({"message": "user has been created."}); // Success!
       }, reason => {
@@ -107,8 +111,7 @@ async function signin(username, userpass) {
 }
 
 app.post('/api/signin', (req,res) =>{
-    console.log(req.query);
-    var p1 = signin(req.query.email, req.query.password);
+    var p1 = signin(req.body.email, req.body.password);
     p1.then(value => {
         // todo token
         res.send(value); // Success!
@@ -128,16 +131,113 @@ app.post('/api/signin', (req,res) =>{
 app.post('/api/getuser', (req,res) =>{
     const currentUser = Parse.User.current();
     if (currentUser) {
-        console.log('herreee');
         res.send(currentUser);
     } else {
-        console.log('not herreee');
         res.send('no user');
     }
 
 })
 
+async function getAllPosts() {
+    const PostObjects = Parse.Object.extend("Post");
+    const query = new Parse.Query(PostObjects);
+    //query.equalTo("playerName", "Dan Stemkoski");
+    const results = await query.find();
+    console.log("Successfully retrieved " + results.length + " scores.");
+    let posts = [];
+    for (let i = 0; i < results.length; i++) {
+        const object = results[i];
+        const creator =await (new Parse.Query(Parse.Object.extend("User"))).get(object.get('created_by').id);
+        
+        this_post = {
+            id: object.get('id'),
+            title: object.get('title'),
+            content: object.get('content'),
+            created_by: creator.get('username'),
+            created_at: creator.get('createdAt'),
+        }
+        posts.push(this_post);
+    }
+    return posts;
+}
 
+app.get('/api/post/', function(req, res){
+    let posts = getAllPosts();
+    posts.then(value => {res.send(value);}, reason => {res.send("something went wrong")});
+})
+
+
+// todo crearte a middle man
+async function isAdmin(){
+    const currentUser = Parse.User.current();
+    if (currentUser) {
+        //const query = await new Parse.Query(Parse.Role).equalTo('users', currentUser).find()
+        //console.log(query);
+        
+        var queries = [
+            new Parse.Query('_Role').equalTo('users', currentUser)
+        ];
+        for (var i = 0; i < 2; i++) {
+            queries.push(new Parse.Query('_Role').matchesQuery('roles', queries[i]));
+        }
+        
+        return currentUser.rolesPromise = Parse.Query.or.apply(Parse.Query, queries).find().then(
+            function(roles) {
+              return roles.map(function(role) {
+                  if (role.get('name') == 'admin'){ return true;}
+                  else { return false;}
+                  
+                //return role.get('name');
+              });
+            }
+          );
+        
+        
+    } else {
+        return false;
+    }
+}
+
+
+// admin post
+
+async function createPost(title, content) {
+    const Post = Parse.Object.extend("Post");
+    const post = new Post();
+    const query = new Parse.Query(Post);
+    let postId = 1 + await query.count();
+    post.set('id',postId);
+    post.set('title',title);
+    post.set('content',content);
+    post.set('created_by', Parse.User.current());
+    await post.save()
+    return postId;
+}
+
+
+
+app.post('/api/admin/post/crud', (req, res)=>{
+    isAdmin().then(value => {
+        
+        if (value==false){
+            res.status(404).send('you are not admin');
+            return;
+        }
+        
+        let title = req.body.title;
+        let content = req.body.content;
+        if(title == '') {
+            res.status(400).send({"message": "filed `title` is not valid"});
+            return;
+        }
+
+        createPost(title, content).then(value => {res.send({'id':value});}, reason => {
+            res.status(400).send({"message": reason.message});
+        })
+        
+
+    });
+})
 
 
 app.listen(3000)

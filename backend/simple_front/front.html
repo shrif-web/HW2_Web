@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple front</title>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script src="./front.js"></script>
+    </head>
+    <body>
+        <p id="responseFromBack">This is an example of a simple HTML page with one paragraph.</p>
+        <br>
+        <p>sign in</p>
+        <form>
+            <input type="text" id="femailsignin" name="email" value="John@gmail.com"><br>
+            <br>
+
+            <input type="text" id="fpasssignin" name="password" value="thisispass1234"><br><br>
+
+            <input onclick="signin()" type="submit" value="Submit">
+        </form> 
+
+        <p>sign up</p>
+        <form>        
+            <input type="text" id="femailsignup" name="email" value="John@gmail.com"><br>
+            <br>
+            <input type="text" id="fpasssignup" name="password" value="thisispass1234"><br><br>
+
+            <input onclick="signup()" type="submit" value="Submit">
+        </form> 
+        <br>
+        <button onclick="getUser()">get user</button>
+
+         
+
+    </body>
+</html>
