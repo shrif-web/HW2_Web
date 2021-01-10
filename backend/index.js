@@ -163,7 +163,8 @@ async function getAllPosts() {
 
 app.get('/api/post/', function(req, res){
     let posts = getAllPosts();
-    posts.then(value => {res.send(value);}, reason => {res.send("something went wrong")});
+    //posts.then(value => {res.send(value);}, reason => {res.send("something went wrong")});
+    posts.then(value => {res.send({message:value});}, reason => {res.send("something went wrong")});
 })
 
 
@@ -205,16 +206,22 @@ async function createPost(title, content) {
     const Post = Parse.Object.extend("Post");
     const post = new Post();
     const query = new Parse.Query(Post);
-    let postId = 1 + await query.count();
-    post.set('id',postId);
+    //let postId = 1 + await query.count();
+    // find id
+    const pipeline = [
+        { group: { objectId: null, total: { $max: '$title_id' } } }
+    ];
+
+    let postId = 1 + (await query.aggregate(pipeline))[0].total;
+    console.log(postId);
+    console.log(typeof(postId));
+    post.set('title_id',postId);
     post.set('title',title);
     post.set('content',content);
     post.set('created_by', Parse.User.current());
     await post.save()
     return postId;
 }
-
-
 
 app.post('/api/admin/post/crud', (req, res)=>{
     isAdmin().then(value => {
@@ -233,11 +240,112 @@ app.post('/api/admin/post/crud', (req, res)=>{
 
         createPost(title, content).then(value => {res.send({'id':value});}, reason => {
             res.status(400).send({"message": reason.message});
-        })
-        
-
+        })        
     });
 })
+
+async function updatePost(title, content ,titleId) {
+    const Post = Parse.Object.extend("Post");
+    const query = new Parse.Query(Post);
+    query.equalTo("title_id", titleId);
+    const results = await query.find();
+    const result = results[0];
+
+    if (result.get('created_by').id !=  Parse.User.current().id) {
+        throw new Error("premission denied");
+    }
+    result.set('title',title);
+    result.set('content',content);
+    await result.save();
+    return "done";
+}
+
+app.put('/api/admin/post/crud/:titleId', (req, res)=>{
+    titleId = parseInt(req.params.titleId);
+    isAdmin().then(value => {
+        
+        if (value==false){
+            res.status(404).send('you are not admin');
+            return;
+        }
+        
+        let title = req.body.title;
+        let content = req.body.content;
+        if(title == '') {
+            res.status(400).send({"message": "filed `title` is not valid"});
+            return;
+        }
+
+        updatePost(title, content, titleId).then(value => {res.send({'id':value});}, reason => {
+            res.status(400).send({"message": reason.message});
+        })        
+    });
+})
+
+// delete post
+
+async function deletePost(titleId) {
+    const Post = Parse.Object.extend("Post");
+    const query = new Parse.Query(Post);
+    query.equalTo("title_id", titleId);
+    const results = await query.find();
+    const result = results[0];
+
+    if (result.get('created_by').id !=  Parse.User.current().id) {
+        throw new Error("premission denied");
+    }
+
+    await result.destroy();
+    return "done";
+}
+// todo there is a bug : when we create post post.title_id = len post + 1, when we delete post and then create there may be duplicate
+app.delete('/api/admin/post/crud/:titleId', (req, res)=>{
+    titleId = parseInt(req.params.titleId);
+    isAdmin().then(value => {
+        
+        if (value==false){
+            res.status(404).send('you are not admin');
+            return;
+        }
+        
+        deletePost(titleId).then(value => {res.send({'id':value});}, reason => {
+            res.status(400).send({"message": reason.message});
+        })        
+    });
+})
+
+app.get('/api/admin/post/crud/:titleId', (req, res)=>{
+    titleId = parseInt(req.params.titleId);
+    isAdmin().then(value => {
+        
+        if (value==false){
+            res.status(404).send('you are not admin');
+            return;
+        }
+        
+        let posts = getAllPosts();
+        posts.then(value => {
+            for(post of value) {
+                if(post.id == titleId){
+                    res.send(post);
+                    return
+                }
+                
+            }
+            res.send(value);
+        }, reason => {res.send("something went wrong")});
+    });
+})
+
+//todo useramun id nadaran?
+app.get('/api/admin/user/crud/:userId', (req, res)=>{
+    titleId = req.params.userId;
+    isAdmin().then(value => {
+        
+    }, reason => {res.send("something went wrong")});
+});
+
+
 
 
 app.listen(3000)
