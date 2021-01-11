@@ -217,3 +217,9 @@ h6 {
     border-bottom: 5px solid;
 }
 
+.postparagraph {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
