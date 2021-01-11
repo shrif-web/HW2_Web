@@ -27,24 +27,12 @@
         <h1 style="text-align:center">Admin Page</h1>
         <br>
     </div>
-    <div class="bg-image">
-        <h3 id="responseFromBack">This is an example of a simple HTML page with one paragraph.</h3>
+    <div id="allposts">
         <br>
-        <h2 class="font-weight-bold">create post</h2>
-        <!-- <form>
-        <p>title</p>
-        <input type="text" id="titlecreatepost" name="title" value=""><br>
-        <br>
-
-        <input type="text" id="contentcreatepost" name="content" value=""><br><br>
-
-        <input type="button" id="createpost" value="Submit">
-    </form>
-
-    <div id="posts">
-
-    </div> -->
-        <div class="bd-example">
+        
+        
+        <div class="bd-example ">
+            <h2 class="font-weight-bold">create post</h2>
             <form>
                 <div class="mb-3">
                     <label for="titlecreatepost" class="form-label">Title</label>
@@ -63,9 +51,50 @@
             </form>
         </div>
 
-        <div id="posts">
+        <div id="posts" class="bd-example">
+            <h2 class="font-weight-bold">posts</h2>
+            <div id="showPosts">
 
+            </div>
         </div>
+    </div>
+
+    <div id="editpost">
+        
+        
+        <div class="bd-example ">
+            <h2 class="font-weight-bold">edit post</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="titleupdatepost" class="form-label">new Title</label>
+                    <input type="text" class="form-control" id="titleupdatepost" aria-describedby="emailHelp">
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+                <div class="mb-3">
+                    <label for="contentupdatepost" class="form-label">new Description</label>
+                    <input type="text" class="form-control" id="contentupdatepost">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" id="updatepost" class="btn btn-primary">Submit</button>
+                <button type="submit" id="returnpost" class="btn btn-primary">back</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <div id="readpost">
+        <h5 id="titleread">title</h5>
+        <br>
+        <p id="createdbyread">created by</p>
+        <br>
+        <p id="createdatread">created at</p>
+
+        <br>
+        <p id="contentread">content</p>
+
     </div>
 
 </body>

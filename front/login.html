@@ -57,29 +57,7 @@
         <div id="error2"></div>
       </div>
       <script>
-        function validate() {
-          var Email = document.getElementById("Email").value;
-          var password = document.getElementById("password").value;
-          if (Email.length == 0) {
-            document.getElementById("error1").innerHTML = "لطفا یک آدرس ایمیل وارد کنید";
-            error1.style.color = "red"
-            document.getElementById("Email").style.border = "2px solid red"
-          }
-          else {
-            document.getElementById("error1").innerHTML = "";
-            document.getElementById("Email").style.border = "2px solid #0080ff"
-          }
-          if (password.length == 0) {
-            document.getElementById("error2").innerHTML = "لطفا رمز عبور را وارد کنید"
-            error2.style.color = "red"
-            document.getElementById("password").style.border = "2px solid red"
-          }
-          else {
-            document.getElementById("error2").innerHTML = "";
-            document.getElementById("password").style.border = "2px solid #0080ff"
-          }
-
-        }
+        
       </script>
 
       <div class="enregistrer active-section">
@@ -106,47 +84,7 @@
         <div id="error6"></div>
       </div>
     </div>
-    <script>
-      function validate_signup() {
-        var Email = document.getElementById("Email_signup").value;
-        var password = document.getElementById("password_signup").value;
-        var confirm_password = document.getElementById("confirm_password").value;
-        var checkbox = document.getElementById("c1")
-        if (Email.length == 0) {
-          document.getElementById("error3").innerHTML = "لطفا یک آدرس ایمیل وارد کنید";
-          error3.style.color = "red"
-          document.getElementById("Email_signup").style.border = "2px solid red"
-        }
-        else {
-          document.getElementById("error3").innerHTML = "";
-          document.getElementById("Email_signup").style.border = "2px solid #0080ff"
-        }
-        if (password.length == 0) {
-          document.getElementById("error4").innerHTML = "لطفا رمز عبور را وارد کنید"
-          error4.style.color = "red"
-          document.getElementById("password_signup").style.border = "2px solid red"
-        }
-        else if (password.localeCompare(confirm_password)) {
-          document.getElementById("error4").innerHTML = "";
-          document.getElementById("password_signup").style.border = "2px solid #0080ff"
-          document.getElementById("error5").innerHTML = "تکرار رمز عبور با رمز عبور یکسان نیست"
-          error5.style.color = "red"
-          document.getElementById("confirm_password").style.border = "2px solid red"
-        }
-        else {
-          document.getElementById("error5").innerHTML = "";
-          document.getElementById("confirm_password").style.border = "2px solid #0080ff"
-        }
-        if (checkbox.checked == false) {
-          document.getElementById("error6").innerHTML = "لطفا قوانین و شرایط را بپذیرید";
-          error6.style.color = "red"
-        }
-        else {
-          document.getElementById("error6").innerHTML = "";
-        }
 
-      }
-    </script>
 
     <div class="picture">
       <div class="image">

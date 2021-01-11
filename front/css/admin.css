@@ -13,3 +13,11 @@ body {
 h3 {
     font-family: "Times New Roman", Times, serif;
 }
+
+#editpost{
+    display: none;
+}
+
+#readpost{
+    display: none;
+}
